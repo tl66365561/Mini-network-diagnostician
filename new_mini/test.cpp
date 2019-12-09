@@ -16,9 +16,9 @@ QMainWindow(parent){
 	
 
 	//设置图标
-	openAction = new QAction(QIcon(":/Networkdiagnostician/doc-open1"), tr("&Open..."), this);
-	saveAction = new QAction(QIcon(":/Networkdiagnostician/doc-open2"), tr("&Save..."), this);
-	parseAction = new QAction(QIcon(":/Networkdiagnostician/doc-open3"), tr("&Parse..."), this);
+	openAction = new QAction(QIcon(":/new_mini/doc-open1"), tr("&Open..."), this);
+	saveAction = new QAction(QIcon(":/new_mini/doc-open2"), tr("&Save..."), this);
+	parseAction = new QAction(QIcon(":/new_mini/doc-open3"), tr("&Parse..."), this);
 	
 	//设置快捷键
 	openAction->setShortcuts(QKeySequence::Open);

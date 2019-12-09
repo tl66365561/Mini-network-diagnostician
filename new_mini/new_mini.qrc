@@ -1,4 +1,7 @@
 <RCC>
     <qresource prefix="new_mini">
-    </qresource>
+      <file alias="doc-open1">C:\Users\ADMIN\Desktop\Picture\open.jpg</file>
+      <file alias="doc-open2">C:\Users\ADMIN\Desktop\Picture\save.jpg</file>
+      <file alias="doc-open3">C:\Users\ADMIN\Desktop\Picture\parse.jpg</file>
+     </qresource>
 </RCC>
