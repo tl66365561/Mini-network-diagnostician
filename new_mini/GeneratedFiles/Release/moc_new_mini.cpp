@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'new_mini.h'
 **
-** Created: Mon Dec 9 15:21:37 2019
+** Created: Tue Dec 10 11:08:50 2019
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!

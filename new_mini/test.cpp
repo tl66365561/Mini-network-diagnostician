@@ -17,21 +17,21 @@ QMainWindow(parent){
 
 	//设置图标
 	openAction = new QAction(QIcon(":/new_mini/doc-open1"), tr("&Open..."), this);
-	saveAction = new QAction(QIcon(":/new_mini/doc-open2"), tr("&Save..."), this);
+	
 	parseAction = new QAction(QIcon(":/new_mini/doc-open3"), tr("&Parse..."), this);
 	
 	//设置快捷键
 	openAction->setShortcuts(QKeySequence::Open);
-	saveAction->setShortcuts(QKeySequence::Save);
+	//saveAction->setShortcuts(QKeySequence::Save);
 	
 	//设置提示信息
 	openAction->setStatusTip(tr("Open an existing file"));
-	saveAction->setStatusTip(tr("Save a file"));
+	//saveAction->setStatusTip(tr("Save a file"));
 	parseAction->setStatusTip(tr("Parse an existing file"));
 	
 	//设置信号槽
 	connect(openAction, SIGNAL(triggered()), this, SLOT(open()));
-	connect(saveAction, SIGNAL(triggered()), this, SLOT(save()));
+	
 	//connect(parseAction,  SIGNAL(triggered()), this, SLOT(parse()));
 	connect(parseAction,  SIGNAL(triggered()), this, SLOT(parse()));
 
@@ -39,16 +39,14 @@ QMainWindow(parent){
 	//添加到菜单栏
 	QMenu *file = menuBar()->addMenu(tr("&File"));
 	file->addAction(openAction);
-	file->addAction(saveAction);
+	//file->addAction(saveAction);
 	file->addAction(parseAction);
 	
 	//添加到工具栏
 	QToolBar *toolBar = addToolBar(tr("&File"));
 	toolBar->addAction(openAction);
-	toolBar->addAction(saveAction);
+	//toolBar->addAction(saveAction);
 	toolBar->addAction(parseAction);
-
-	
 
 
 	statusBar();
@@ -118,7 +116,19 @@ void MainWindow::parse(){
 	QHBoxLayout *layout = new QHBoxLayout;
 	layout->addWidget(textEdit2);
 	setCentralWidget(textEdit2);
+	
+	saveAction = new QAction(QIcon(":/new_mini/doc-open2"), tr("&Save..."), win);
+	connect(saveAction, SIGNAL(triggered()), this, SLOT(save()));
+	//添加到菜单栏
+	QMenu *file = menuBar()->addMenu(tr("&File"));
+	file->addAction(saveAction);
+	
+	//添加到工具栏
+	QToolBar *toolBar = addToolBar(tr("&File"));
+	toolBar->addAction(saveAction);
+	
 
+	
 	qDebug()<<str<<endl;    
 
 
@@ -131,17 +141,27 @@ void MainWindow::parse(){
 	 //timer->start(1000); // 每隔1s
 
 
-	/* WorkerThread work(this,win,layout);
-	work.start(); */
+	 WorkerThread* work = new WorkerThread(this,win,layout,this->textEdit2);
+	 bool bConnect = connect(work, SIGNAL(windowShow(0)), this, SLOT(onWindowShow(win,layout)));
+    
+	 work->start();
  
 
-	 mfunc_parse();//进行文本内容的预处理	 
+	 //mfunc_parse();//进行文本内容的预处理	 
 	  
-	  win->setLayout(layout); 
-	  win->show();
+	 //win->setLayout(layout); 
+	// win->show();
+	//
 	
 	
-	
+}
+
+
+void MainWindow::onWindowShow(QWidget* win,QHBoxLayout *layout){
+
+	win->setLayout(layout); 
+    win->show();
+
 }
 
 
