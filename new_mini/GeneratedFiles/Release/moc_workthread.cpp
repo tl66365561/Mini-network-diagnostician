@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'workthread.h'
 **
-** Created: Wed Dec 11 16:27:58 2019
+** Created: Wed Dec 11 18:22:11 2019
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!

@@ -1,9 +1,9 @@
-﻿Build started 2019/12/11 16:27:57.
+﻿Build started 2019/12/11 18:22:10.
      1>Project "C:\Users\ADMIN\documents\visual studio 2010\Projects\new_mini\new_mini\new_mini.vcxproj" on node 2 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "Release\new_mini.lastbuildstate".
        InitializeBuildStatus:
-         Touching "Release\new_mini.unsuccessfulbuild".
+         Creating "Release\new_mini.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
          Moc'ing new_mini.h...
          Qt: Untested Windows version 6.2 detected!
@@ -46,4 +46,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.68
+Time Elapsed 00:00:15.02

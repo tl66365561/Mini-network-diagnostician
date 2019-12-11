@@ -35,7 +35,7 @@ class MainWindow2 : public QMainWindow{
 public:
 	MainWindow2(QWidget *parent = 0);
 	~MainWindow2();
-	void Show_window(QString content);
+	//void Show_window(QString content);
 	void mfunc_parse(QVector<QString>v,QMap< QString,QVector<QString> >m);
 
 private:
@@ -43,12 +43,11 @@ private:
 
 
 
-private:
+public:
 	QTextEdit* textEdit2;        //文本框指针
 	WorkerThread thread_;        //线程类对象
 
-
-	private slots:		
+private slots:		
 		void save();
 		void onWindowShow(QString text);
 
@@ -74,7 +73,7 @@ public:
 	~MainWindow();
 	//void func_parse(QString s,QTextEdit* &textEdit2);
 	
-    void RequsetNewthread(QVector<QString> v, QMap<QString,QVector<QString>>m);
+    void RequsetNew(QVector<QString> v, QMap<QString,QVector<QString>>m);
 
 
 private slots:		

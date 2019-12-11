@@ -20,6 +20,7 @@ signals:
 private:
 	QVector<QString>_v1;   //元素是每一段
 	QVector<QString>_v2;  //元素是每一小段每一行内容
+	QVector<QString>_domain; //存储每一段的域名部分
 	QMap< QString,QVector<QString> >_m;
 	QString _text;
 	int count;
@@ -29,9 +30,6 @@ private slots:
 
 public:
 	bool Search(QString s1,QString s2);
-
-
-public:
 	WorkerThread(QObject *parent=0);
     void RequsetNewthread(QVector<QString> v,QMap< QString,QVector<QString> >m);
 

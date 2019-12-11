@@ -10,10 +10,6 @@ QMainWindow(parent){
 	textEdit2 = new QTextEdit(this);
 	setCentralWidget(textEdit2);
 
-	//layout = new QHBoxLayout();
-	//layout->addWidget(textEdit2);
-	//setCentralWidget(textEdit2);
-
 	saveAction = new QAction(QIcon(":/new_mini/doc-open2"), tr("&Save..."), this);
 	connect(saveAction, SIGNAL(triggered()), this, SLOT(save()));
 	//添加到菜单栏
@@ -24,19 +20,18 @@ QMainWindow(parent){
 	QToolBar *toolBar = addToolBar(tr("&File"));
 	toolBar->addAction(saveAction);
 
+
+	connect( &thread_, SIGNAL(windowShow(QString )),
+		this, SLOT(onWindowShow(QString)) );
+	
+
+
 	statusBar();
 
 
 }
 
 
-void MainWindow2::Show_window(QString content){
-
-	
-	this->show();
-
-
-}
 
 void MainWindow2::save(){
 
@@ -127,6 +122,7 @@ QMainWindow(parent){
 	
 	//设置信号槽
 	connect(openAction, SIGNAL(triggered()), this, SLOT(open()));	
+	connect(saveAction, SIGNAL(triggered()), this, SLOT(save()));	
 	connect(parseAction,  SIGNAL(triggered()), this, SLOT(parse()));
 
 	
@@ -265,10 +261,10 @@ void MainWindow::open(){
 
 }
 
-void MainWindow::RequsetNewthread(QVector<QString> v, QMap<QString,QVector<QString>>m){
+void MainWindow::RequsetNew(QVector<QString> v, QMap<QString,QVector<QString>>m){
 
 
-win2.mfunc_parse(v,m);
+       win2.mfunc_parse(v,m);
 
 
 }
@@ -278,50 +274,12 @@ win2.mfunc_parse(v,m);
 
 //parseAction的槽函数
 void MainWindow::parse(){
+
+	RequsetNew(v1,m);	
 	
-
-
-	RequsetNewthread(v1,m);
-
-	//win2->mfunc_parse(v1);
-
-
-    // win2->Show_window(str);
-
-
-
-
-
-	 //如果用定时器的话，如果parse的时间过长，则窗口就会卡死
-	 //QTimer *timer = new QTimer(this);
-	 //connect(timer, SIGNAL(timeout()), this, SLOT(mfunc_parse())); 
-	 //timer->start(1000); // 每隔1s
-
-	/*
-	WorkerThread* work = new WorkerThread(this, str);
-	bool bConnect = connect(work, SIGNAL(windowShow(0)), this, SLOT(onWindowShow(win,layout)));
-
-	work->start();
-	work->wait(300);
-	*/
-
-	 //mfunc_parse();//进行文本内容的预处理	 
-	 //win->setLayout(layout); 
-	 // win->show();
-	
-	
+	//(win2.textEdit2)->setText("loading .... .... ....");
+	//win2.show();
 }
-
-
-//void MainWindow::onWindowShow(QWidget* win,QHBoxLayout *layout){
-
-/*win->setLayout(layout); 
-win->show();
-
-}*/
-
-
-//////////////////////////////////////////////////////////////////////////////
 
 
 MainWindow::~MainWindow(){

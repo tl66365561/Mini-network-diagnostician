@@ -8,7 +8,7 @@
 	{
 
 	_text=" ";
-
+	count=0;
 }
 
 
@@ -28,6 +28,10 @@
 
 
 void WorkerThread::run(){
+
+
+
+while(1){
 
 //对每一个小段进行处理 
 for( int i=0;i<9;++i){   
@@ -86,14 +90,29 @@ for( int i=0;i<9;++i){
 		
 	}
 
+	
+  _domain.push_back(_v2[0]);
 
-	QHostInfo::lookupHost(_v2[0],   
-		this, SLOT(lookedUp(QHostInfo)));            //对，因为这边是异步执行的  解决方案：
+}//end of for...
 
+   emit windowShow(_text);
+
+
+//把每一个域名都存储一下
+for(int j=0;j<9;++j){
+    QHostInfo::lookupHost(_domain[j], this, SLOT(lookedUp(QHostInfo)));            //对，因为这边是异步执行的  解决方案：
+}
+ 
+
+}//end of while(1);
 
 }
 
-}
+
+
+
+
+
 
 void WorkerThread::lookedUp(const QHostInfo &host)
 {
