@@ -8,5 +8,3 @@ int main(int argc, char *argv[])
 	w.show();
 	return a.exec();
 }
-
-//	q1: 解析一次多一个Save file;

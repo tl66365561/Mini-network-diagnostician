@@ -5,10 +5,13 @@
 #include <QTextEdit>
 #include <QAction>
 #include <QMenuBar>
+#include<windows.h>
 #include <QWidget>
+#include <QDialog>
 #include <QMessageBox>
 #include<QThread>
 #include <QToolBar>
+#include <QTime>
 #include<fstream>
 #include<QDebug>
 #include<QPushButton>
@@ -19,109 +22,90 @@
 #include<QString>
 #include <QInputDialog>
 #include <QList>
-#include<QHostInfo>
-#include <QHostAddress>
-#include<windows.h>
-#include <QtNetwork\qhostinfo.h>
-#include <QDialog>
-#include <QAbstractSocket>
-#include <QTime>
-#include <QTcpSocket>
 
-
-
-//利用多线程去跑
+#include "workthread.h"
 
 
 
 
-class WorkerThread : public QThread{
-	
+//弹窗类
+class MainWindow2 : public QMainWindow{
+
 	Q_OBJECT
-signals:
-	void windowShow();
+public:
+	MainWindow2(QWidget *parent = 0);
+	~MainWindow2();
+	void Show_window(QString content);
+	void mfunc_parse(QVector<QString>v,QMap< QString,QVector<QString> >m);
 
 private:
-	QWidget *win;
-	QHBoxLayout *layout;
-	QTextEdit* textEdit2;
-
-public:
-	WorkerThread(QObject *parent, QWidget* win1,QHBoxLayout* layout1,QTextEdit* textEdit2_)
-		: QThread(parent)
-		,win(win1)
-		,layout(layout1)
-		,textEdit2(textEdit2_)
-		//,tmp2(tmp_)
-	{
-
-	}
+	QAction *saveAction;	
 
 
-protected:
-	void run(){
 
-		
-		//layout->addWidget(textEdit2);
-		//setCentralWidget(textEdit2);
+private:
+	QTextEdit* textEdit2;        //文本框指针
+	WorkerThread thread_;        //线程类对象
 
-		//saveAction = new QAction(QIcon(":/new_mini/doc-open2"), tr("&Save..."), win);
-		//connect(saveAction, SIGNAL(triggered()), win, SLOT(save()));
-		////添加到菜单栏
-		//QMenu *file = menuBar()->addMenu(tr("&File"));
-		//file->addAction(saveAction);
 
-		////添加到工具栏
-		//QToolBar *toolBar = addToolBar(tr("&File"));
-		//toolBar->addAction(saveAction);
-		//
-		emit windowShow();
-	}
-		
+	private slots:		
+		void save();
+		void onWindowShow(QString text);
 
 };
 
 
-//////////////////////////////////////////////////////////////////
 
 
+
+
+
+
+//主窗口类
 class MainWindow : public QMainWindow{
-	
+
 	Q_OBJECT
 public:
-	void mfunc_parse();
-	bool Search(QString s1,QString s2);
+	//void mfunc_parse();
+	//bool Search(QString s1,QString s2);
 
 public:
 	MainWindow(QWidget *parent = 0);
 	~MainWindow();
 	//void func_parse(QString s,QTextEdit* &textEdit2);
-
-public slots:
-	void onWindowShow(QWidget* win,QHBoxLayout *layout);
 	
+    void RequsetNewthread(QVector<QString> v, QMap<QString,QVector<QString>>m);
 
-private slots:
-		void open();
-		void save();
-		void parse();
-		void lookedUp(const QHostInfo &host);  
+
+private slots:		
+	void open();
+	void save();
+	void parse();		
+
+
+protected:
+	void funcParse();
 
 
 private:
+	QAction *saveAction;	
 	QAction *openAction;
-	QAction *saveAction;
 	QAction *parseAction;
-
 	QTextEdit* textEdit;
-	QTextEdit* textEdit2;
-	QMap< QString,QVector<QString> >m;
+	
+	QString path; //保存打开文件的路径
 	QString str;  //用来传递文本内容
+	QVector<QString>v1;//元素是每一段
 	QVector<QString>v2;  //元素是每一小段每一行内容
-	QString tmp;  //用来诊断信息的（+=）输出
+	MainWindow2 win2;
+	QMap< QString,QVector<QString> >m;
 
+
+	//static QString tmp;  //用来诊断信息的（+=）输出
 
 };
+
+
 
 
 
