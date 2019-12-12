@@ -38,15 +38,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="new_mini.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_new_mini.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_new_mini.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_new_mini.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
@@ -68,11 +59,11 @@
     <ClCompile Include="GeneratedFiles\Release\moc_workthread.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="new_mini.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="new_mini.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
@@ -89,6 +80,9 @@
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_new_mini.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LOG.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

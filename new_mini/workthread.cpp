@@ -2,7 +2,6 @@
 #include "workthread.h"
 
 
-
  WorkerThread::WorkerThread(QObject *parent)
 	: QThread(parent)
 	{
@@ -11,8 +10,8 @@
 		_text+="\n********************  NetWork Checking... ...  *******************\n\n";
 		_text+="\n******************************************************************\n\n";
 
-    	count=0;
-	
+    	count=0;	
+		log=new LOG();
 }
 
 
@@ -28,19 +27,50 @@
 
 
 
-
-
-
 void WorkerThread::run(){
+
+	/* timer = new QTimer(this);
+	timer->start(100);
+	*/
+
+	progress=new QProgressDialog("Parsing content", "Cancel", 0,100);
+	progress->setWindowModality(Qt::WindowModal);
+	progress->setMinimumDuration(5);  
+	progress->setWindowTitle("Parsing now ..."); 
+	progress->show();
+
+	if(progress->wasCanceled())                                  
+	{
+	
+		QMessageBox::warning(NULL,"Warning","you have canceled this action.");
+	    return;
+	}
+
+
+	for (int i = 0; i < 100; i++) {
+    
+		Sleep(100);
+		progress->setValue(i);
+
+	}
+	progress->setValue(100);
+
+	
+	
 
 
 
 while(1){//实时监控
 
 
-	Sleep(3000);
+	Sleep(1000);
     _domain.clear();
 	count=0;
+
+	QString log_=log->Log_record(" Paring result: ");
+	_text+=log_;
+	_text+="\n";
+	
 	
 	//对每一个小段进行处理 
   for( int i=0;i<9;++i){   
@@ -186,4 +216,11 @@ bool WorkerThread::Search(QString s1,QString s2){
 }
 
 
-//完善的话：   1.可以在弹窗之前增加一个解析的界面设计    2.每一个大段前打印一次Log       3.窗口伴随下移
+WorkerThread::~WorkerThread(){
+
+	delete progress;
+	delete log;
+	//delete timer;
+}
+
+//完善的话：   1.可以在弹窗之前增加一个解析的界面设计：进度条对话框     2.每一个大段前打印一次Log       3.窗口伴随下移

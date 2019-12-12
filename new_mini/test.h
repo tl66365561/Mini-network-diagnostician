@@ -22,7 +22,6 @@
 #include<QString>
 #include <QInputDialog>
 #include <QList>
-
 #include "workthread.h"
 
 

@@ -1,49 +1,9 @@
-﻿Build started 2019/12/12 11:18:08.
-     1>Project "C:\Users\ADMIN\documents\visual studio 2010\Projects\new_mini\new_mini\new_mini.vcxproj" on node 2 (rebuild target(s)).
+﻿Build started 2019/12/12 17:46:56.
+     1>Project "C:\Users\ADMIN\documents\visual studio 2010\Projects\new_mini\new_mini\new_mini.vcxproj" on node 2 (clean target(s)).
      1>_PrepareForClean:
          Deleting file "Release\new_mini.lastbuildstate".
-       InitializeBuildStatus:
-         Creating "Release\new_mini.unsuccessfulbuild" because "AlwaysCreate" was specified.
-       CustomBuild:
-         Moc'ing new_mini.h...
-         Qt: Untested Windows version 6.2 detected!
-         Uic'ing new_mini.ui...
-         Qt: Untested Windows version 6.2 detected!
-         Moc'ing workthread.h...
-         Qt: Untested Windows version 6.2 detected!
-         Moc'ing test.h...
-         Qt: Untested Windows version 6.2 detected!
-         Rcc'ing new_mini.qrc...
-         Qt: Untested Windows version 6.2 detected!
-       ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IC:\Qt\4.7.4\include /I.\GeneratedFiles\Release /IC:\Qt\4.7.4\include\QtCore /IC:\Qt\4.7.4\include\QtGui /IC:\Qt\4.7.4\include\QtNetwork /Zi /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /D QT_NETWORK_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GeneratedFiles\qrc_new_mini.cpp
-         qrc_new_mini.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IC:\Qt\4.7.4\include /I.\GeneratedFiles\Release /IC:\Qt\4.7.4\include\QtCore /IC:\Qt\4.7.4\include\QtGui /IC:\Qt\4.7.4\include\QtNetwork /Zi /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /D QT_NETWORK_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GeneratedFiles\Release\moc_new_mini.cpp GeneratedFiles\Release\moc_test.cpp GeneratedFiles\Release\moc_workthread.cpp main.cpp new_mini.cpp test.cpp workthread.cpp
-         moc_new_mini.cpp
-         moc_test.cpp
-         moc_workthread.cpp
-         main.cpp
-         new_mini.cpp
-         test.cpp
-         workthread.cpp
-         Generating Code...
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\ADMIN\documents\visual studio 2010\Projects\new_mini\Win32\Release\\new_mini.exe" /NOLOGO /LIBPATH:C:\Qt\4.7.4\lib qtmain.lib QtCore4.lib QtGui4.lib QtNetwork4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\new_mini.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\ADMIN\documents\visual studio 2010\Projects\new_mini\Win32\Release\new_mini.pdb" /MAP /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\ADMIN\documents\visual studio 2010\Projects\new_mini\Win32\Release\new_mini.lib" /MACHINE:X86 Release\qrc_new_mini.obj
-         Release\moc_new_mini.obj
-         Release\moc_test.obj
-         Release\moc_workthread.obj
-         Release\main.obj
-         Release\new_mini.obj
-         Release\test.obj
-         Release\workthread.obj
-         new_mini.vcxproj -> C:\Users\ADMIN\documents\visual studio 2010\Projects\new_mini\Win32\Release\new_mini.exe
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\ADMIN\documents\visual studio 2010\Projects\new_mini\Win32\Release\\new_mini.exe;#1" /manifest Release\new_mini.exe.intermediate.manifest
-       FinalizeBuildStatus:
-         Deleting file "Release\new_mini.unsuccessfulbuild".
-         Touching "Release\new_mini.lastbuildstate".
-     1>Done Building Project "C:\Users\ADMIN\documents\visual studio 2010\Projects\new_mini\new_mini\new_mini.vcxproj" (rebuild target(s)).
+     1>Done Building Project "C:\Users\ADMIN\documents\visual studio 2010\Projects\new_mini\new_mini\new_mini.vcxproj" (clean target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:06.20
+Time Elapsed 00:00:00.01

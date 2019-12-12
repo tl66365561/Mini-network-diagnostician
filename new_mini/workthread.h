@@ -7,11 +7,22 @@
 #include <QTcpSocket>
 #include<QHostInfo>
 #include <windows.h>
+#include <QProgressDialog>
+#include <QDebug>
 #include <QHostAddress>
 #include <QtNetwork\qhostinfo.h>
 #include <QTcpSocket>
+#include <QMessageBox>
 #include<QMutex>
+#include <time.h>
 #include <QAbstractSocket>
+#include <QTimer>
+#include<QProgressDialog>
+#include "LOG.h"
+//#include "Log.hpp"
+
+
+
 
 class WorkerThread : public QThread{
 
@@ -25,7 +36,10 @@ private:
 	QVector<QString>_domain; //存储每一段的域名部分
 	QMap< QString,QVector<QString> >_m;
 	QString _text;
+	QProgressDialog* progress;
 	int count;
+	LOG* log;
+	//QTimer *timer;
 	QMutex mutex;
 
 private slots:
@@ -34,6 +48,7 @@ private slots:
 public:
 	bool Search(QString s1,QString s2);
 	WorkerThread(QObject *parent=0);
+	~WorkerThread();
     void RequsetNewthread(QVector<QString> v,QMap< QString,QVector<QString> >m);
 
 protected:
