@@ -6,9 +6,11 @@
 #include <QString>
 #include <QTcpSocket>
 #include<QHostInfo>
+#include <windows.h>
 #include <QHostAddress>
 #include <QtNetwork\qhostinfo.h>
 #include <QTcpSocket>
+#include<QMutex>
 #include <QAbstractSocket>
 
 class WorkerThread : public QThread{
@@ -24,6 +26,7 @@ private:
 	QMap< QString,QVector<QString> >_m;
 	QString _text;
 	int count;
+	QMutex mutex;
 
 private slots:
 		void lookedUp(const QHostInfo &host);  

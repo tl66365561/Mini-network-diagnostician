@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'new_mini.ui'
 **
-** Created: Wed Dec 11 18:22:11 2019
+** Created: Thu Dec 12 11:18:08 2019
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
